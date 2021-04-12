@@ -2,7 +2,7 @@
     
     var myMap = L.map("map", {
         center: [45.52, -122.67],
-        zoom: 6
+        zoom: 5
       });
       
       // Adding a tile layer (the background map image) to our map
@@ -52,15 +52,41 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     {
         var earthquakePoint = data[index];
 
+        // console.log(earthquakePoint.properties.mag);
+        //console.log(earthquakePoint.geometry.coordinates[2]);
+
+        var earthquakeDepth = earthquakePoint.geometry.coordinates[2];
+
+        var color = "";
+        if (earthquakeDepth < 10) {
+          color = "green";
+        }
+        else if (earthquakeDepth = 10 && earthquakeDepth < 30) {
+          color = "#ABE098";
+        }
+        else if (earthquakeDepth = 30 && earthquakeDepth < 50) {
+          color = "#FFE301";
+        }
+        else if (earthquakeDepth = 50 && earthquakeDepth < 70) {
+            color = "#FFA200";
+        }
+        else if (earthquakeDepth = 70 && earthquakeDepth < 90) {
+        color = "#FF5E00";
+        }
+        else {
+          color = "red";
+        }
+      
         earthquakeMarkers.push(
             L.circle([earthquakePoint.geometry.coordinates[1], earthquakePoint.geometry.coordinates[0]], 
             {
               stroke: false,
               fillOpacity: 0.5,
-              color: "white",
-              fillColor: "green",
-              radius: earthquakePoint.geometry.coordinates[2] * 1000
-            }));
+              color: "black",
+              fillColor: color,
+              radius: earthquakePoint.properties.mag * 10000
+            }).bindPopup("<h1>" +  + "</h1> <hr> <h3>Points: " +  + "</h3>").addTo(myMap));
+
         // console.log();
         //var earthquakeMarker = L.marker([earthquakePoint.geometry.coordinates[1], earthquakePoint.geometry.coordinates[0]])
         // .bindPopup("<h3>" + station.name + "<h3><h3>Capacity: " + station.capacity + "</h3>");
