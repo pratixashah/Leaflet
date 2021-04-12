@@ -1,7 +1,7 @@
 // function createMap(earthquakeMarkers) {
     
     var myMap = L.map("map", {
-        center: [45.52, -122.67],
+        center: [38.80, -116.41],
         zoom: 6
       });
       
@@ -60,10 +60,10 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         //console.log(earthquakeDepth);
         var color = "";
         if (earthquakeDepth < 10) {
-          color = "#84C77A";
+          color = "#7FFF00";
         }
         else if (earthquakeDepth >= 10 && earthquakeDepth < 30) {
-          color = "#BDE284";
+          color = "#CDD704";
         }
         else if (earthquakeDepth >= 30 && earthquakeDepth < 50) {
           color = "#FFE301";
@@ -81,14 +81,16 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         earthquakeMarkers.push(
             L.circle([earthquakePoint.geometry.coordinates[1], earthquakePoint.geometry.coordinates[0]], 
             {
-              stroke: false,
+              stroke: true,
+              weight:1,
               fillOpacity: 1,
-              color: "white",
+              color: "black",
               fillColor: color,
-              radius: earthquakePoint.properties.mag * 10000,
-              paint:{
-                "circle-border": 1
-              }
+              radius: earthquakePoint.properties.mag * 8000
+            //   paint:{
+            //     "circle-border": 1,
+            //     "stroke-width":1
+            //   }
             }).bindPopup("<h4>Place: " + earthquakePoint.properties.place +
              "</h4> <hr> <h5>Magnitude: " + earthquakePoint.properties.mag + 
              "</h5><h5>Depth of earthquake: " + earthquakeDepth + "</h5>"
@@ -125,7 +127,7 @@ legend.onAdd = function (map)
 
     var div = L.DomUtil.create('div', 'info legend'),
         grades = ["-10-10", "10-30", "30-50", "50-70", "70-90", "+90"],
-        labels = ["#84C77A","#BDE284","#FFE301","#FFA200","#FF5E00","#F70D1B"];
+        labels = ["#7FFF00","#CDD704","#FFE301","#FFA200","#FF5E00","#F70D1B"];
 
     // loop through our density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < grades.length; i++) 
