@@ -2,8 +2,11 @@
 var earthquakeMarkers = [];
 var tectonicplatesMarkers = [];
 
-function createMap(earthquakeMarkers, tectonicplatesMarkers) {
+function createMap() {
     
+  earthquakeMarkers = L.layerGroup(earthquakeMarkers);
+  tectonicplatesMarkers = L.layerGroup(tectonicplatesMarkers);
+
     var myMap = L.map("map", {
         center: [38.80, -116.41],
         zoom: 6
@@ -125,9 +128,18 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     }
 
 
-   createMap(L.layerGroup(earthquakeMarkers),L.layerGroup(tectonicplatesMarkers));
+   createMap();
 });
 // Perform an API call to the Citi Bike API to get station information. Call createMarkers when complete
-// d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(createMarkers);
+d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function(data){
+  //console.log(data.features);
+
+  for(var index = 0; index < data.features.length; index++)
+  {
+    console.log(data.features[index].geometry);
+    //tectonicplatesMarkers.push(data[index]);
+  }
+  // tectonicplatesMarkers = L.polyline(data);
+});
 //   createMap();
 
