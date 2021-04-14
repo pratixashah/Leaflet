@@ -9,7 +9,7 @@ function createMap() {
 
     var myMap = L.map("map", {
         center: [38.80, -116.41],
-        zoom: 6
+        zoom: 5
       });
       
       // Adding a tile layer (the background map image) to our map
@@ -120,7 +120,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
               fillOpacity: 1,
               color: "black",
               fillColor: color,
-              radius: earthquakePoint.properties.mag * 8000
+              radius: earthquakePoint.properties.mag * 15000
             }).bindPopup("<h4>Place: " + earthquakePoint.properties.place +
              "</h4> <hr> <h5>Magnitude: " + earthquakePoint.properties.mag + 
              "</h5><h5>Depth of earthquake: " + earthquakeDepth + "</h5>"
