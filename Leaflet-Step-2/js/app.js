@@ -132,7 +132,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     L.geoJson(data,
       {
         color:"orange",
-        weight:2
+        weight:4
       })
       .addTo(tectonicplatesMarkers);
   });
