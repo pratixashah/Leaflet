@@ -4,7 +4,7 @@ The USGS is responsible for providing scientific data about natural hazards, the
  
 ## Visualization on Earthquake Data:
 
-**1. Leaflet-Step-1**  
+**1. Leaflet-Step-1: (Map with Earthquake points as Markers)**  
 
 - **Data Source:** JSON Data (https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson) 
 - **Script:** js/app.js 
@@ -15,7 +15,7 @@ The USGS is responsible for providing scientific data about natural hazards, the
 - A popups that provide additional information about the earthquake when a marker is clicked.
 - A legend that will provide context for map data.
 
-**2. Leaflet-Step-2** 
+**2. Leaflet-Step-2 (Map with Tectonic Plates points as Polylines)** 
 
 - **Data Source:** JSON Data (https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json)
 - **Script:** js/app.js
