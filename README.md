@@ -6,9 +6,9 @@ The USGS is responsible for providing scientific data about natural hazards, the
 
 **1. Leaflet-Step-1**  
 
-**Data Source:** JSON Data (https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson)
-**Script:** js/app.js
-**Landing Page:** index.html
+- **Data Source:** JSON Data (https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson)
+- **Script:** js/app.js
+- **Landing Page:** index.html
 
 - A map using Leaflet that plots all of the earthquakes from json data set based on their longitude and latitude.
 - A data markers reflects the magnitude of the earthquake by their size.
@@ -18,9 +18,9 @@ The USGS is responsible for providing scientific data about natural hazards, the
 
 **2. Leaflet-Step-2** 
 
-**Data Source:** JSON Data (https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json)
-**Script:** js/app.js
-**Landing Page:** index.html
+- **Data Source:** JSON Data (https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json)
+- **Script:** js/app.js
+- **Landing Page:** index.html
 
 - To illustrate the relationship between tectonic plates and seismic activity on map.
 - Adds a number of base maps like Satelite, Grayscale and Outdoors to choose from.  
